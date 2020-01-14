@@ -1,0 +1,17 @@
+@mixin absolute($left,$top) {
+    position: absolute;
+    left: $left;
+    top: $top;
+}
+@mixin size($width,$height) {
+    width:$width;
+    height: $height;
+}
+@mixin transition($property:all,$duration:.2s,$time-function:ease-in-out){
+    transition: $property $duration $time-function;
+}
+@mixin yMiddle {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}

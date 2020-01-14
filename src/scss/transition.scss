@@ -1,0 +1,7 @@
+@import "./use/all.scss";
+.xm-fade-enter,.xm-fade-leave-to{
+    opacity: 0;
+}
+.xm-fade-enter-active,.xm-fade-leave-active{
+    @include transition(opacity,.1s);
+}
