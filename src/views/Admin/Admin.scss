@@ -13,7 +13,7 @@
     .admin-side-menu{
        @include absolute(0,0);
        @include size($admin-side-menu-close-width,100vh);
-        overflow: hidden;
+        // overflow: hidden;
         background-color: $admin-side-menu-bg;
         @include transition(width);
     }
