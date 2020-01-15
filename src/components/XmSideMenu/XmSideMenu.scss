@@ -1,0 +1,32 @@
+@import "../../scss/use/all.scss";
+.xm-side-menu{
+    text-align: left;
+    overflow: hidden;
+    color: $admin-side-menu-color;
+    .xm-side-menu-label{
+        position: relative;
+        padding:10px 0;
+        padding-left: 25px;
+        min-width: 100px;
+        cursor: pointer;
+        @include transition();
+        &:hover{
+            background-color: $admin-side-menu-hover-bg;
+            color: $admin-side-menu-hover-color;
+        }
+        .xm-icon{
+            margin-right: 10px;
+        }
+        .fa-angle-down{
+            @include yMiddle();
+            @include transition(all .2s);
+            right: 10px;
+            &.toggle{
+                transform: translateY(-50%) rotate(180deg);
+            }
+        }
+    }
+    .xm-side-menu-children{
+        padding-left: 25px;
+    }
+}
