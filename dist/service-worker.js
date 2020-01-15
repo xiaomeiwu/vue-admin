@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.0edf97db2596cc690f9e16238a9c0960.js"
+  "precache-manifest.b3a5af3b34004b6e0a42e7a78797eb1f.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "vue-admin"});
