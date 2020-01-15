@@ -1,0 +1,14 @@
+@import '../../scss/use/all.scss';
+.login{
+    @include size(100vw,100vh);
+    background-color: $login-bg;
+    color: $login-color;
+    position: relative;
+    .login-submit{
+        @include absolute(50%,50%);
+        transform: translate(-50%,-50%);
+    }
+    .login-operator{
+        text-align: right;
+    }
+}
