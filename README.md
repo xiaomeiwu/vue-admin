@@ -1,4 +1,6 @@
-# vue-admin
+<h1 style="text-align:center;">
+    <img src="./logo.png" width="100px" height="100px" alt="admin-login"/>
+</h1>
 
 ## Project setup
 ```

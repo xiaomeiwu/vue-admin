@@ -2,10 +2,15 @@
 export default [
     {
         path: '/',
-        redirect: '/admin'
+        redirect: '/login'
+    },
+    {
+        path: '/login',
+        component: () => import('../../views/Login')
     },
     {
         path: '/admin',
+        redirect: '/admin/dashboard',
         component: () => import('../../views/Admin'),
         children: [
             {

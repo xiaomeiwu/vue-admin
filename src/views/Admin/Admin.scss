@@ -1,0 +1,28 @@
+@import '../../scss/use/all.scss';
+.admin{
+    position: relative;
+    @include size(100vw,100vh);
+    &.side-menu-is-open{
+        .admin-side-menu{
+            @include size($admin-side-menu-open-width,100vh);
+        }
+        .admin-container{
+            margin-left: $admin-side-menu-open-width;
+        }
+    }
+    .admin-side-menu{
+       @include absolute(0,0);
+       @include size($admin-side-menu-close-width,100vh);
+        // overflow: hidden;
+        background-color: $admin-side-menu-bg;
+        @include transition(width);
+    }
+    .admin-container{
+        margin-left: $admin-side-menu-close-width;
+        @include transition(margin-left);
+        .admin-view{
+            
+        }
+
+    }
+}

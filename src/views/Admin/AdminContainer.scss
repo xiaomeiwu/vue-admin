@@ -1,0 +1,39 @@
+@import "../../scss/use/all.scss";
+.admin-container{
+    .admin-container-info{
+        background-color: $admin-container-info-bg;
+        height: $admin-container-info-height;
+        position: relative;
+        .admin-container-info-toggle{
+            @include yMiddle();
+            left: 5px;
+            display: inline-block;
+            border-radius: 2px;
+            padding:5px;
+            cursor: pointer;
+            &:hover{
+                background-color: rgba($color: #000000, $alpha: 0.1);
+            }
+            .fa{
+                outline: none;
+                border: none;
+                background-color: transparent;
+                cursor: pointer;
+            }
+        }
+        .admin-container-info-user{
+            @include yMiddle;
+            right: 20px;
+            cursor: pointer;
+            span{
+                &:nth-child(1){
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+    .admin-container-view{
+        height: calc(100vh - #{$admin-container-info-height});
+        background-color: $admin-container-view-bg;
+    }
+}

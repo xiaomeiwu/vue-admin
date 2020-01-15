@@ -5,3 +5,15 @@
 .xm-fade-enter-active,.xm-fade-leave-active{
     @include transition(opacity,.1s);
 }
+
+.xm-slide-enter{
+    transform: translateX(-50px);
+    opacity: 0;
+}
+.xm-slide-leave-to{
+    transform: translateX(-50px);
+    opacity: 0;
+}
+.xm-slide-enter-active,.xm-slide-leave-active{
+    @include transition(all,.2s);
+}
