@@ -1,13 +1,21 @@
 @import "../../scss/use/all.scss";
 .xm-side-menu{
     text-align: left;
-    overflow: hidden;
     color: $admin-side-menu-color;
+    >li{
+        position: relative;
+        z-index: 1000;
+        &:hover{
+            .xm-side-menu-tooltip{
+                display: block;
+            }
+        }
+    }
     .xm-side-menu-label{
         position: relative;
         padding:10px 0;
         padding-left: 25px;
-        min-width: 100px;
+        box-sizing: border-box;
         cursor: pointer;
         @include transition();
         &:hover{
@@ -28,5 +36,18 @@
     }
     .xm-side-menu-children{
         padding-left: 25px;
+    }
+    .xm-side-menu-tooltip{
+        position: absolute;
+        left: 100%;
+        top: 0;
+        word-break: keep-all;
+        display: none;
+        background-color: $admin-side-menu-bg;
+        border-radius:0 5px 5px 0;
+        color: #dcdee5;
+        .xm-side-menu-item{
+            padding:15px;
+        }
     }
 }

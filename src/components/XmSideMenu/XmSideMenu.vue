@@ -15,10 +15,14 @@
           <xm-side-menu-item v-for="child in menu.children" :key="child.id" :data="child"></xm-side-menu-item>
         </div>
       </xm-height-transition>
+      <div class="xm-side-menu-tooltip" v-show="!showIcon">
+        <xm-side-menu-item v-for="child in menu.children" :key="child.id" :data="child"></xm-side-menu-item>
+      </div>
     </li>
   </ul>
 </template>
 <script>
+import Vue from "vue";
 import { XmHeightTransition } from "../../components";
 import XmSideMenuItem from "./XmSideMenuItem";
 export default {
@@ -41,6 +45,9 @@ export default {
   },
   methods: {
     toggle(menu) {
+      if (!this.showIcon) {
+        return;
+      }
       this.$set(menu, "isOpen", !!!menu.isOpen);
     }
   }
