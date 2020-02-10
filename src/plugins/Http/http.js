@@ -1,38 +1,32 @@
-import { instance } from './axiosInstance'
-function send(config, handleError) {
-  return new Promise(function(resolve, reject) {
-    instance(config).then(
-      res => resolve(res),
-      err => {
-        handleError ? handleError(err, resolve, reject) : console.log(err)
+import { send } from './axiosInstance'
+import * as api from './api'
+function installHttp(api, http) {
+  for (const key in api) {
+    if (api[key].url) {
+      installApi({ ...api[key] }, key, http)
+    } else {
+      http[key] = installHttp(api[key], {})
+    }
+  }
+  return http
+  function installApi(config, key, api) {
+    config.method ? null : (config.method = 'get')
+    api[key] = function({ data, handleError }) {
+      if (config.method === 'get') {
+        config.params = data
+      } else if (config.method === 'post') {
+        config.data = data
       }
-    )
-  })
-}
-export const http = {
-  login({ data, handleError }) {
-    return send(
-      {
-        method: 'get',
-        url: '/login',
-        params: data
-      },
-      handleError
-    )
-  },
-  dashabord: {
-    user({ data, handleError }) {
-      return send(
-        {
-          method: 'post',
-          url: '/user',
-          data,
-          headers: {
-            token: '123456'
-          }
-        },
-        handleError
-      )
+      return send(config, handleError)
     }
   }
 }
+
+export const http = installHttp(api, {})
+
+http.dashboard['hhh'][1][2]({
+  data: {},
+  handleError({ error }) {
+    console.log(222, error)
+  }
+})
