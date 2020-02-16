@@ -37,7 +37,7 @@ export default {
       return
     }
     installed = true
-    Object.defineProperty(Vue.prototype, 'Ls', {
+    Object.defineProperty(Vue.prototype, '$ls', {
       get() {
         return Ls
       }
