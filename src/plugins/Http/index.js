@@ -6,7 +6,7 @@ export default {
       return
     }
     installed = true
-    Object.defineProperty(Vue.prototype, 'Http', {
+    Object.defineProperty(Vue.prototype, '$http', {
       get() {
         return http
       }
