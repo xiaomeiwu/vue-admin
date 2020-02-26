@@ -4,7 +4,9 @@
       <xm-input label="用户名" v-model="username"></xm-input>
       <xm-input label="密码" type="password" v-model="password"></xm-input>
       <div class="login-operator">
-        <button @click="login">login</button>
+        <button class="p-2 bg-blue-500 rounded w-full" @click="login">
+          登&nbsp;录
+        </button>
       </div>
     </div>
   </div>

@@ -2,14 +2,17 @@
   <div class="admin-container">
     <div class="admin-container-info">
       <span class="admin-container-info-toggle" @click="toggle">
-        <button class="fa" type="button" :class="toggleClass"></button>
+        <button
+          class="fa text-blue-500"
+          type="button"
+          :class="toggleClass"
+        ></button>
       </span>
       <div class="admin-container-info-user" @click="loginOut">
-        <span>login out</span>
-        <span class="fa fa-sign-out-alt"></span>
+        <span class="fa fa-sign-out-alt text-blue-500" title="退出登录"></span>
       </div>
     </div>
-    <router-view class="admin-container-view"></router-view>
+    <router-view class="admin-container-view text-orange-900"></router-view>
   </div>
 </template>
 <script>
