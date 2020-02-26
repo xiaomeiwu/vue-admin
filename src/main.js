@@ -1,5 +1,7 @@
 import "@fortawesome/fontawesome-free/css/all.css";
+import "./scss/transition.scss";
 import "./tailwind/index.scss";
+
 import "./polyfill";
 import "./install";
 import "./registerServiceWorker";
