@@ -3,26 +3,39 @@
     <li v-for="menu in menus" :key="menu.id">
       <div class="xm-side-menu-label" @click="toggle(menu)">
         <span class="xm-icon" :class="menu.icon"></span>
-        <transition name="xm-fade">
+        <span v-if="showIcon">{{ menu.label }}</span>
+        <span
+          v-if="showIcon && menu.children.length > 0"
+          class="fa fa-angle-down"
+          :class="{ toggle: menu.isOpen }"
+        ></span>
+        <!-- <transition name="xm-fade">
           <div class="xm-inline-block" v-show="showIcon">
             <span>{{menu.label}}</span>
             <span class="fa fa-angle-down" :class="{'toggle':menu.isOpen}"></span>
           </div>
-        </transition>
+        </transition> -->
       </div>
       <xm-height-transition>
         <div v-show="menu.isOpen" class="xm-side-menu-children">
-          <xm-side-menu-item v-for="child in menu.children" :key="child.id" :data="child"></xm-side-menu-item>
+          <xm-side-menu-item
+            v-for="child in menu.children"
+            :key="child.id"
+            :data="child"
+          ></xm-side-menu-item>
         </div>
       </xm-height-transition>
       <div class="xm-side-menu-tooltip" v-show="!showIcon">
-        <xm-side-menu-item v-for="child in menu.children" :key="child.id" :data="child"></xm-side-menu-item>
+        <xm-side-menu-item
+          v-for="child in menu.children"
+          :key="child.id"
+          :data="child"
+        ></xm-side-menu-item>
       </div>
     </li>
   </ul>
 </template>
 <script>
-import Vue from "vue";
 import { XmHeightTransition } from "../../components";
 import XmSideMenuItem from "./XmSideMenuItem";
 export default {
@@ -48,7 +61,7 @@ export default {
       if (!this.showIcon) {
         return;
       }
-      this.$set(menu, "isOpen", !!!menu.isOpen);
+      this.$set(menu, "isOpen", !menu.isOpen);
     }
   }
 };
