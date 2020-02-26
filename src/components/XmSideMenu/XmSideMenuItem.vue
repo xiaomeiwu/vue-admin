@@ -1,10 +1,13 @@
 <template>
-  <div class="xm-side-menu-item">{{data.label}}</div>
+  <div class="xm-side-menu-item" @click="go(data)">{{data.label}}</div>
 </template>
 <script>
 export default {
   props: {
-    data: Object
+    data: Object,
+    go: {
+      type: Function
+    }
   }
 };
 </script>

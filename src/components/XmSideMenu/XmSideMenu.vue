@@ -12,11 +12,11 @@
       </div>
       <xm-height-transition>
         <div v-show="menu.isOpen" class="xm-side-menu-children">
-          <xm-side-menu-item v-for="child in menu.children" :key="child.id" :data="child"></xm-side-menu-item>
+          <xm-side-menu-item v-for="child in menu.children" :key="child.id" :data="child" :go="go"></xm-side-menu-item>
         </div>
       </xm-height-transition>
       <div class="xm-side-menu-tooltip" v-show="!showIcon">
-        <xm-side-menu-item v-for="child in menu.children" :key="child.id" :data="child"></xm-side-menu-item>
+        <xm-side-menu-item v-for="child in menu.children" :key="child.id" :data="child" :go="go"></xm-side-menu-item>
       </div>
     </li>
   </ul>
@@ -28,7 +28,11 @@ import XmSideMenuItem from "./XmSideMenuItem";
 export default {
   props: {
     menus: Array,
-    showIcon: Boolean
+    showIcon: Boolean,
+    go: {
+      type: Function,
+      default: function() {}
+    }
   },
   components: {
     XmSideMenuItem,
