@@ -12,7 +12,7 @@
         <span class="fa fa-sign-out-alt text-blue-500" title="退出登录"></span>
       </div>
     </div>
-    <router-view class="admin-container-view"></router-view>
+    <router-view class="admin-container-view text-orange-900"></router-view>
   </div>
 </template>
 <script>

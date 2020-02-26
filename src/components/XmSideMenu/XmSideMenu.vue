@@ -22,6 +22,7 @@
             v-for="child in menu.children"
             :key="child.id"
             :data="child"
+            :go="go"
           ></xm-side-menu-item>
         </div>
       </xm-height-transition>
@@ -30,6 +31,7 @@
           v-for="child in menu.children"
           :key="child.id"
           :data="child"
+          :go="go"
         ></xm-side-menu-item>
       </div>
     </li>
@@ -41,7 +43,11 @@ import XmSideMenuItem from "./XmSideMenuItem";
 export default {
   props: {
     menus: Array,
-    showIcon: Boolean
+    showIcon: Boolean,
+    go: {
+      type: Function,
+      default: function() {}
+    }
   },
   components: {
     XmSideMenuItem,
@@ -58,6 +64,12 @@ export default {
   },
   methods: {
     toggle(menu) {
+      if (!menu.children || menu.children.length == 0) {
+        if (this.$route.path !== menu.path) {
+          this.$router.push(menu.path);
+        }
+        return;
+      }
       if (!this.showIcon) {
         return;
       }

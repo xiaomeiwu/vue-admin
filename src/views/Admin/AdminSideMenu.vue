@@ -1,6 +1,10 @@
 <template>
   <div class="admin-side-menu">
-    <xm-side-menu :menus="sideMenus" :show-icon="sideMenuIsOpen"></xm-side-menu>
+    <xm-side-menu
+      :menus="sideMenus"
+      :show-icon="sideMenuIsOpen"
+      :go="go"
+    ></xm-side-menu>
   </div>
 </template>
 <script>
@@ -18,6 +22,15 @@ export default {
     return {
       sideMenus
     };
+  },
+  methods: {
+    go(data) {
+      if (!data || !data.path || data.path === this.$route.path) {
+        return;
+      }
+      const { path } = data;
+      this.$router.push({ path });
+    }
   }
 };
 </script>
